@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deque", "Deque\Deque.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DequeLibrary", "DequeLibrary\DequeLibrary.csproj", "{BC335D33-D73C-42FC-8E31-F5479B2340DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Deque.Test", "Deque.Test\Deque.Test.csproj", "{4398F444-38E1-4F84-8EDF-CA4E139B26CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{BC335D33-D73C-42FC-8E31-F5479B2340DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC335D33-D73C-42FC-8E31-F5479B2340DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC335D33-D73C-42FC-8E31-F5479B2340DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4398F444-38E1-4F84-8EDF-CA4E139B26CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4398F444-38E1-4F84-8EDF-CA4E139B26CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4398F444-38E1-4F84-8EDF-CA4E139B26CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4398F444-38E1-4F84-8EDF-CA4E139B26CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
