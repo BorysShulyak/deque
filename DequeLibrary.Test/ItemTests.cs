@@ -6,7 +6,7 @@ namespace DequeLibrary.Test
     public class ItemTests
     {
         [Fact]
-        public void ItemInitialization()
+        public void ItemDataIsCorrectAfterInitialization()
         {
             // Arrange
             int mockedData = 10;
@@ -14,11 +14,23 @@ namespace DequeLibrary.Test
 
             // Act
             int itemData = item.Data;
+
+            // Assert
+            Assert.Equal(mockedData, itemData);
+        }
+
+        [Fact]
+        public void ItemReferencesAreCorrectAfterInitialization()
+        {
+            // Arrange
+            int mockedData = 10;
+            Item<int> item = new Item<int>(mockedData);
+
+            // Act
             Item<int> nextItem = item.Next;
             Item<int> previousItem = item.Previous;
 
             // Assert
-            Assert.Equal(mockedData, item.Data);
             Assert.Null(nextItem);
             Assert.Null(previousItem);
         }
