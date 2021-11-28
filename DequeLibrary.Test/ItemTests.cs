@@ -6,7 +6,7 @@ namespace DequeLibrary.Test
     public class ItemTests
     {
         [Fact]
-        public void ItemDataIsCorrectAfterInitialization()
+        public void ShouldHaveCorrectDataAfterInitialization()
         {
             // Arrange
             int mockedData = 10;
@@ -20,7 +20,7 @@ namespace DequeLibrary.Test
         }
 
         [Fact]
-        public void ItemReferencesAreCorrectAfterInitialization()
+        public void ShouldHaveCorrectReferencesAfterInitialization()
         {
             // Arrange
             int mockedData = 10;
