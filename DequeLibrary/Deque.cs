@@ -6,6 +6,17 @@ namespace DequeLibrary
 {
     public class Deque<T> : IEnumerable<T>
     {
+        public delegate void DequeStateHandler(string message);
+        DequeStateHandler _dequeStateDelegate;
+        public void RegisterHandler(DequeStateHandler dequeStateDelegate)
+        {
+            _dequeStateDelegate += dequeStateDelegate;
+        }
+        public void UnregisterHandler(DequeStateHandler dequeStateDelegate)
+        {
+            _dequeStateDelegate -= dequeStateDelegate;
+        }
+
         private Item<T> _head = null;
         private Item<T> _tail = null;
         private int count = 0;
@@ -29,6 +40,8 @@ namespace DequeLibrary
             item.Previous = _tail;
             _tail = item;
             count++;
+
+            _dequeStateDelegate?.Invoke($"Item {data} was added as the last.");
         }
 
         public void AddFirst(T data)
@@ -51,6 +64,8 @@ namespace DequeLibrary
             item.Next = _head;
             _head = item;
             count++;
+
+            _dequeStateDelegate?.Invoke($"Item {data} was added as the first.");
         }
 
         public T RemoveLast()
@@ -72,6 +87,9 @@ namespace DequeLibrary
             _tail.Previous.Next = null;
             _tail = _tail.Previous;
             count--;
+
+            _dequeStateDelegate?.Invoke($"Item {temp} was removed from the end.");
+
             return temp;
         }
 
@@ -95,6 +113,9 @@ namespace DequeLibrary
             _head.Next.Previous = null;
             _head = _head.Next;
             count--;
+
+            _dequeStateDelegate?.Invoke($"Item {temp} was removed from the start.");
+
             return temp;
         }
 
@@ -102,7 +123,7 @@ namespace DequeLibrary
         {
             if (data == null)
             {
-                throw new Exception("Некоректный ввод");
+                throw new Exception("Incorrect input");
             }
 
             Item<T> current = _head;

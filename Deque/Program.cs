@@ -1,5 +1,5 @@
 ﻿using System;
-using System.Collections;
+
 using DequeLibrary;
 
 namespace DequeProgram
@@ -9,6 +9,8 @@ namespace DequeProgram
         static void Main(string[] args)
         {
             Deque<string> usersDeck = new Deque<string>();
+            usersDeck.RegisterHandler(ShowInfoMessage);
+
             usersDeck.AddFirst("Alice");
             usersDeck.AddLast("Kate");
             usersDeck.AddLast("Tom");
@@ -17,10 +19,17 @@ namespace DequeProgram
                 Console.WriteLine(s);
 
             string removedItem = usersDeck.RemoveFirst();
-            Console.WriteLine("\n Удален: {0} \n", removedItem);
+            Console.WriteLine("\n Deleted: {0} \n", removedItem);
 
             foreach (string s in usersDeck)
                 Console.WriteLine(s);
+        }
+
+        private static void ShowInfoMessage(string message)
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
+            Console.WriteLine(message);
+            Console.ResetColor();
         }
     }
 }
